@@ -220,27 +220,3 @@ void print_candidate_num(SudokuBoard *p_board)
         printf("\n");
     }
 }
-
-int same_candidates(Cell *cell1, Cell *cell2)
-{
-    if (cell1->num_candidates != cell2->num_candidates)
-        return 0;
-
-    for (int i = 0; i < cell1->num_candidates; i++)
-    {
-        if (cell1->candidates[i] != cell2->candidates[i])
-            return 0;
-    }
-
-    return 1;
-}
-
-int contains(int *array, int size, int value)
-{
-    for (int i = 0; i < size; i++)
-    {
-        if (array[i] == value)
-            return 1;
-    }
-    return 0;
-}

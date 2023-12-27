@@ -2,9 +2,13 @@
 
 #include "sudoku.h"
 
-// Function prototypes
-int check_triple(SudokuBoard *p_board, int row1, int col1, int row2, int col2);
-int contains(int *array, int size, int value);
-void remove_other_candidates(SudokuBoard *p_board, int row1, int col1, int row2, int col2, int *candidates, int num_candidates);
+typedef struct NakedTriples_struct
+{
+    Cell **p_cells;
+    int index[3];
+    int value[3];
+} NakedTriples;
 
+int check_naked_triples(Cell **p_cells, int *triples, int *index);
+void find_naked_triples(Cell **p_cells, NakedTriples *p_naked_triples, int *p_counter, int unit);
 int naked_triples(SudokuBoard *p_board);
